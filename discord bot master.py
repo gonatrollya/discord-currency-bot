@@ -1,6 +1,11 @@
 import discord
 from discord.ext import commands
 import sqlite3
+
+currencyname = 'dobloons'
+currencyname = str(currencyname)
+
+
 client = commands.Bot(command_prefix = '!')
 @client.command(pass_context=True)
 @client.event
@@ -44,6 +49,8 @@ async def balance(ctx, *arg):
     if currentbalance == '':
         await client.say('that person isnt in the database')
     else:
+        currentbalance = str(currentbalance)
+        currentbalance = currentbalance + currencyname
         await client.say('that persons balance is')
         await client.say(currentbalance)
 
@@ -109,6 +116,8 @@ async def give(ctx, *arg):
     currentbalance = int(currentbalance)
     currencyamount = int(currencyamount)
     currentbalance = currentbalance + currencyamount
+    currentbalance = str(currentbalance)
+    currentbalance = currentbalance + currencyname
     await client.say('new balance')
     await client.say(currentbalance)
     c.execute("UPDATE currency SET balance = ? WHERE user =?",(currentbalance,membername,))
@@ -119,5 +128,9 @@ async def give(ctx, *arg):
 @client.command()
 async def broken():
     await client.say('im sorry, im trying my best')
+
+
+
+    
     await client.say(person)
 client.run('TOKEN')
