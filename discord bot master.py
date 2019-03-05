@@ -10,7 +10,10 @@ client = commands.Bot(command_prefix = '!')
 @client.command(pass_context=True)
 @client.event
 async def on_ready():
-    print('bot is ready')
+    print('Bot is online and working as')
+    print(client.user.name)
+    print('Bot id')
+    print(client.user.id)
 
 
 @client.command()
@@ -133,4 +136,4 @@ async def broken():
 
     
     await client.say(person)
-client.run('TOKEN')
+client.run('Token')
