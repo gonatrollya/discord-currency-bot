@@ -4,7 +4,7 @@ import sqlite3
 
 currencyname = 'dobloons'
 currencyname = str(currencyname)
-
+currencyname = ' ' + currencyname
 
 client = commands.Bot(command_prefix = '!')
 @client.command(pass_context=True)
