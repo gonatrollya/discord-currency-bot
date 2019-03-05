@@ -129,8 +129,8 @@ async def give(ctx, *arg):
 
 
 @client.command()
-async def broken():
-    await client.say('im sorry, im trying my best')
+async def test():
+    await client.say('test successfull')
 
 
 
